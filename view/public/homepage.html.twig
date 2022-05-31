@@ -1,0 +1,46 @@
+{% extends 'public/public.template.html.twig' %}
+
+{% block title %}{{ parent() }} Accueil {% endblock %}
+
+{% block pagetype %}home{% endblock %}
+
+{% block logo %}
+    <div id="logo">
+        <h1>News <span id="iisrt"><span id="ii">II</span>  <span id="srt">WEB</span></span></h1>
+        <div id="tagline">
+            <h2>Accueil</h2>
+        </div>
+    </div>{% endblock %}
+{% block slider %}
+    <!-- Slide mis en commentaire, on peut le garder si nécessaire -->
+    <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+            <img src="images/slide1.jpg" alt=""/>
+            <a href="http://geeksband.com"><img src="images/slide2.jpg" alt=""
+                                                title="This is an example of a caption with a link"/></a>
+            <img src="images/slide3.jpg" alt="" title="This is an example of a caption"/>
+            <img src="images/slide4.jpg" alt=""/>
+        </div>
+    </div>{% endblock %}
+{% block main %}
+    <section>
+    <div id="line">
+        <div class="dline"></div>
+        <h1>Nos derniers articles</h1>
+        <div class="dline"></div>
+    </div>
+    <div id="derniers-articles">
+        {% for article in lastArticles %}
+            <article id="art-1">
+                <h1><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h1>
+                <img src="images/1.jpg" alt=""/>
+                <p>{{ article.thearticleresume|raw }}</p>
+                <p>Nombre de commentaires : {{ article.nbcomment }}</p>
+                <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
+                <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                    le {{ article.thearticledate|date('d/m/Y') }}</p>
+
+            </article>
+        {% endfor %}
+    </div>
+    </section>{% endblock %}
