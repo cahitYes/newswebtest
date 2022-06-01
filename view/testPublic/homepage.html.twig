@@ -56,4 +56,16 @@
             </div>
         </section>
     <BR/><BR/><BR/>
+    {% for article in lastArticles %}
+        <article id="art-1">
+            <h1><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h1>
+            <img src="images/1.jpg" alt=""/>
+            <p>{{ article.thearticleresume|raw }}</p>
+            <p>Nombre de commentaires : {{ article.nbcomment }}</p>
+            <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
+            <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                le {{ article.thearticledate|date('d/m/Y') }}</p>
+
+        </article>
+    {% endfor %}
 {% endblock %}
