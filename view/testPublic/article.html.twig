@@ -1,4 +1,4 @@
-{% extends 'public/public.template.html.twig' %}
+{% extends "./testPublic/public.template.html.twig" %}
 
 {% block title %}{{ parent() }} Article : {{ article.thearticletitle|raw }} {% endblock %}
 
@@ -16,7 +16,7 @@
     <section>
         <div id="line">
             <div class="dline"></div>
-            <h1>Article : {{ article.thearticletitle|raw }}</h1>
+            <h4>Article : {{ article.thearticletitle|raw }}</h4>
             <div class="dline"></div>
         </div>
         <div class="sectionDesc">
