@@ -1,0 +1,36 @@
+{% extends "./testPublic/public.template.html.twig" %}
+
+{% block title %}{{ parent() }} Nous contacter {% endblock %}
+
+{% block pagetype %}contact{% endblock %}
+
+{% block logo %}
+    {% endblock %}
+{% block main %}
+    <section  class="login spad">
+        <div id="line">
+
+                <div class="login__form">
+            <h3>Nous contacter</h3>
+                </div>
+        </div>
+            <div class="login__form">
+        <div id="contactpost">
+            <h3>Contact Us</h3>
+            <p>Below is an example of how a contact form might look with this template:</p>
+            <form method="post">
+                <div id="contactform">
+                    <div><p><label for="name">Name </label><input type="text" name="name" id="name" placeholder="your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'your name'" value="{% if name is defined %}{{ name }}{% endif %}"/></p></div></div>
+                    <div><p><label for="email">Email</label><input type="email" name="email" id="email" placeholder="your@email.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'your@email.com'" value="{% if email is defined %}{{ email }}{% endif %}"/></p></div>
+                    <div><p><label for="message">Message</label><textarea name="message" id="message">{% if message is defined %}{{ message }}{% endif %}</textarea></p></div>
+                    <div><p><input class="submit" type="submit" name="contact_submitted" value="submit"/></p></div>
+                </div>
+            </form>
+            <p>NOTE: A contact form such as this would require some way of emailing the input<br/>
+                to an email address.</p>
+        </div>    </div>
+        </div>
+
+
+    </section>
+{% endblock %}
