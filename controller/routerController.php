@@ -26,7 +26,7 @@ if (isset($_GET["disconnect"])) :
 // page blog
 elseif (isset($_GET['blog'])):
     $articles = $thearticleManager->thearticleSelectAll();
-    echo $twig->render('public/blog.html.twig', [
+    echo $twig->render('testPublic/blog.html.twig', [
         'menu'     => $thesectionMenu,
         'articles' => $articles,
         'membre'   => $_SESSION,
@@ -46,7 +46,7 @@ elseif (isset($_GET['section'])):
         }
 
         // appel de l'erreur 404
-        echo $twig->render('public/error404.html.twig', [
+        echo $twig->render('testPublic/error404.html.twig', [
             'menu'    => $thesectionMenu,
             'message' => $theSectionDatas,
             'membre'  => $_SESSION,
@@ -57,7 +57,7 @@ elseif (isset($_GET['section'])):
         $articles = $thearticleManager->thearticleSelectAllFromSection($theSectionDatas['idthesection']);
 
         // affichage de le section
-        echo $twig->render('public/section.html.twig', [
+        echo $twig->render('testPublic/section.html.twig', [
             'menu'     => $thesectionMenu,
             'section'  => $theSectionDatas,
             'articles' => $articles,
@@ -74,14 +74,14 @@ elseif (isset($_GET['article'])):
     // si on reçoit false (pas d'article)
     if (!$theArticleDatas):
         // appel de l'erreur 404
-        echo $twig->render('public/error404.html.twig', [
+        echo $twig->render('testPublic/error404.html.twig', [
             'menu'    => $thesectionMenu,
             'message' => "Cet article n'existe plus !",
             'membre'  => $_SESSION,
         ]);
     // on a récupéré un article
     else:
-        echo $twig->render('public/article.html.twig', [
+        echo $twig->render('testPublic/blog.html.twig', [
             'menu'    => $thesectionMenu,
             'article' => $theArticleDatas,
             'membre'  => $_SESSION,
@@ -97,13 +97,13 @@ elseif (isset($_GET['user']) && ctype_digit($_GET['user'])):
     $theUserDatas = $theuserManager->theuserSelectOneById($idUser);
 
     if (!$theArticleDatas):
-        echo $twig->render('public/error404.html.twig', [
+        echo $twig->render('testPublic/error404.html.twig', [
             'menu'    => $thesectionMenu,
             'message' => "Cet utilisateur n'existe pas !",
             'membre'  => $_SESSION,
         ]);
     else:
-        echo $twig->render('public/user.html.twig', [
+        echo $twig->render('testPublic/user.html.twig', [
             'menu' => $thesectionMenu,
 
             'articles' => $theArticleDatas,
@@ -147,7 +147,7 @@ Nous vous répondrons dans les plus bref délai.");
             $twig->addGlobal("message", $message);
         }
     }
-    echo $twig->render('public/contact.html.twig', [
+    echo $twig->render('testPublic/contact.html.twig', [
         'menu'   => $thesectionMenu,
         'membre' => $_SESSION,
     ]);
@@ -160,7 +160,7 @@ elseif (isset($_GET['connect']) && !isset($_SESSION["idSession"])):
             header("Location: ./");
         }
         else {
-            echo $twig->render("public/connexion.html.twig", [
+            echo $twig->render("testPublic/connexion.html.twig", [
                 'menu'   => $thesectionMenu,
                 "error"  => "Wrong Login or Password!",
                 'membre' => $_SESSION,
@@ -168,7 +168,7 @@ elseif (isset($_GET['connect']) && !isset($_SESSION["idSession"])):
         }
     }
     else {
-        echo $twig->render("public/connexion.html.twig", ['menu' => $thesectionMenu, 'membre' => $_SESSION,]);
+        echo $twig->render("testPublic/connexion.html.twig", ['menu' => $thesectionMenu, 'membre' => $_SESSION,]);
     }
 else:
     $lastArticles = $thearticleManager->thearticleSelectAll(3, 0);

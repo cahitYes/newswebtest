@@ -28,23 +28,32 @@
 {% endblock %}
 {% block body %}
 <div id="preloder">
-    <div class="loader"></div>
-</div>
-
-<!-- Header Section Begin -->
-<header class="header">
-    <div class="container">
-
+        <div class="loader"></div>
     </div>
-</header>
-        {% block logo %}
 
-        {% endblock %}
-        {% block nav %}
+    <!--  Header Section Begin-->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./">
+                            <img src="./testPublicFiles/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            {% block nav %} {% include "testPublic/menu.html.twig" %} {% endblock %}
+                        </nav>
+                    </div>
+                </div>
 
-            {% include "./testPublic/menu.html.twig" %}
-
-        {% endblock %}
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
         {% block slider %}
 
         {% endblock %}
@@ -60,7 +69,7 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="footer__logo">
-                                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                                <a href="./"><img src="./testPublicFiles/img/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-6">

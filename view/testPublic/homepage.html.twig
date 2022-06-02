@@ -3,14 +3,7 @@
 {% block title %}{{ parent() }} Accueil  {% endblock %}
 {% block pagetype %}home{% endblock %}
 {% block logo %}
-    <div class="col-lg-2">
-        <div class="header__logo">
-            <a href="./index.html">
-                <img src="./testPublicFiles/img/logo.png" alt="">
-            </a>
-        </div>
 
-</div>
 {% endblock %}
 {% block main %}
         <section class="hero">
@@ -84,7 +77,12 @@
                                             <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
-                                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
+                                        <p>{{ article.thearticleresume|raw }}</p>
+                                        <p>Nombre de commentaires : {{ article.nbcomment }}</p>
+                                        <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
+                                        <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                                            le {{ article.thearticledate|date('d/m/Y') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +98,12 @@
                                             <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
-                                        <h5><a href="#">Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien</a></h5>
+                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
+                                        <p>{{ article.thearticleresume|raw }}</p>
+                                        <p>Nombre de commentaires : {{ article.nbcomment }}</p>
+                                        <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
+                                        <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                                            le {{ article.thearticledate|date('d/m/Y') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +119,12 @@
                                             <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
-                                        <h5><a href="#">Shingeki no Kyojin Season 3 Part 2</a></h5>
+                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
+                                        <p>{{ article.thearticleresume|raw }}</p>
+                                        <p>Nombre de commentaires : {{ article.nbcomment }}</p>
+                                        <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
+                                        <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                                            le {{ article.thearticledate|date('d/m/Y') }}</p>
                                     </div>
                                 </div>
                             </div>
