@@ -1,0 +1,49 @@
+{% extends 'public/public.template.html.twig' %}
+
+{% block title %}{{ parent() }} Article : {{ article.thearticletitle|raw }} {% endblock %}
+
+{% block pagetype %}section{% endblock %}
+
+{% block logo %}
+    <div id="logo">
+        <h1>News <span id="iisrt"><span id="ii">II</span>  <span id="srt">WEB</span></span></h1>
+        <div id="tagline">
+            <h2>Article</h2>
+        </div>
+    </div>
+{% endblock %}
+{% block main %}
+    <section>
+        <div id="line">
+            <div class="dline"></div>
+            <h1>Article : {{ article.thearticletitle|raw }}</h1>
+            <div class="dline"></div>
+        </div>
+        <div class="sectionDesc">
+            <p>{{ article.thearticledesc }}</p>
+            {# Pour activer le var_dump de twig : https://twig.symfony.com/doc/3.x/functions/dump.html #}
+            {# dump(articles) #}
+        </div>
+        <div id="articles">
+
+            <article>
+                <div id="displayArticle">
+                    <h1><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h1>
+                    <h2>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                        le {{ article.thearticledate|date('d/m/Y') }}</h2>
+                    <img src="images/a1.jpg" alt=""/>
+
+                    <div id="descArticle">
+                        <h4>
+                            {{ article.thearticleresume|raw }}
+                        </h4>
+                    </div>
+
+                </div>
+                <div>{{ article.thearticletext|raw|nl2br }}</div>
+            </article>
+
+        </div>
+
+    </section>
+{% endblock %}
