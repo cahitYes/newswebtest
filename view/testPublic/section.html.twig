@@ -1,0 +1,72 @@
+{% extends "./testPublic/public.template.html.twig" %}
+{% block meta %}{{ parent() }}{% endblock %}
+{% block title %}{{ parent() }} Accueil  {% endblock %}
+{% block pagetype %}home{% endblock %}
+{% block logo %}
+
+{% endblock %}
+{% block main %}
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+            <div class="blog__details__content">
+            <div class="section-title">
+            <h4>Section : {{ section.thesectiontitle }}</h4>
+
+        </div>
+        <div class="blog__details__text">
+            <p>{{ section.thesectiondesc }}</p>
+
+        </div>
+        <div id="articles">
+            <div class="notHighlighted">
+
+                {% for item in articles %}
+
+                    <article>
+                        <div id="displayArticle">
+                            <h5><a href="?article={{ item.thearticleslug }}">{{ item.thearticletitle|raw }}</a></h5>
+                           <div class="blog__details__text"> <p>Posté par : <a href="?user={{ item.idtheuser }}">{{ item.theuserlogin }}</a>
+                                le {{ item.thearticledate|date('d/m/Y') }}<br>
+                                {# Nous avons plusieures sections possibles, il faut les séparer (|||) avant de les afficher en tant que lien, tant qu'il y en a, sinon affichons "Pas de section pour cet article" #}
+
+                                {# on coupe nos 2 variables avec le séparateur #}
+                                {% set slugs = item.thesectionslug|split('|||') %}
+                                {% set titles = item.thesectiontitle|split('|||') %}
+
+                                {# ensuite, tant qu'on a récupéré des éléments, on fait une boucle sur un des 2 (ils ont le même nombre d'éléments)  #}
+                                {% for slug in slugs %}
+                                    {# on récupère le slug grâce à son alias dans la boucle #}
+                                    <a href="?section={{ slug }}">{{ titles[loop.index0] }}</a>
+                                    {# On récupère le titre en utilisant l'index du tableau commençant par  #}
+                                    {# Si nous ne sommes pas au dernier tour #}
+                                    {% if not loop.last %} | {% endif %}
+                                {% else %}
+                                    Pas de section pour cette article
+                                {% endfor %}
+                               </p></div>
+
+
+                            <img src="images/a1.jpg" alt=""/>
+                        </div>
+                        <div id="descArticle" class="blog__details__text">
+                            <p>
+                                {{ item.thearticleresume|raw }}<br>
+                                <a class="continue" href="?article={{ item.thearticleslug }}">Continuer la lecture
+                                    &rarr;</a><br>
+                            <p>Nombre de commentaires : {{ item.nbcomment }}</p>
+                            </p>
+                        </div>
+                    </article>
+                    {# si pas encore d'article #}
+                {% else %}
+                    <div class="blog__details__text"><p>Pas encore d'articles</p></div>
+                {% endfor %}
+            </div>
+        </div></div></div></div>
+    </section>
+
+
+
+{% endblock %}
