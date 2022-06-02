@@ -172,7 +172,7 @@ elseif (isset($_GET['connect']) && !isset($_SESSION["idSession"])):
     }
 else:
     $lastArticles = $thearticleManager->thearticleSelectAll(3, 0);
-    echo $twig->render('testPublic/homepage.html.twig', [
+    echo $twig->render('testPublic/article.html.twig', [
         'menu'         => $thesectionMenu,
         "lastArticles" => $lastArticles,
         'membre'       => $_SESSION,
