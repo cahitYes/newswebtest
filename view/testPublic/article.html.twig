@@ -8,6 +8,7 @@
 
 {% endblock %}
 {% block main %}
+ 
     <section class="blog-details spad">
         <div class="container">
             <div class="row d-flex justify-content-center">
@@ -19,35 +20,60 @@
                         </div>
                         <div class="blog__details__item__text">
 
-        <div id="line">
-            <div class="dline"></div>
-            <h4>Article : {{ article.thearticletitle|raw }}</h4>
-            <div class="dline"></div>
-        </div>
-        <div class="sectionDesc">
-            <p>{{ article.thearticledesc }}</p>
+                            <div id="line">
+                                <div class="dline"></div>
+                                <h4>Article : {{ article.thearticletitle|raw }}</h4>
+                                <div class="dline"></div>
+                            </div>
+                            <div class="sectionDesc">
+                                <p>{{ article.thearticledesc }}</p>
 
-        </div>
-        <div id="articles">
+                            </div>
+                            <div id="articles">
 
-            <article>
-                <div id="displayArticle">
-                    <h4><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h4>
-                    <h5>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
-                        le {{ article.thearticledate|date('d/m/Y') }}</h5>
-                    <img src="images/a1.jpg" alt=""/>
+                                <article>
+                                    <p id="displayArticle">
 
-                    <div id="descArticle">
-                        <h4>
-                            {{ article.thearticleresume|raw }}
-                        </h4>
+
+                                    <h5><p>Posté par : <a
+                                                    href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                                            le {{ article.thearticledate|date('d/m/Y') }}</h5>
+                                    </p>
+                                    <img src="images/a1.jpg" alt=""/>
+
+                                    <div id="descArticle">
+                                        <h4>
+                                            {{ article.thearticleresume|raw }}
+                                        </h4>
+
+                                    </div>
+
+                            </div>
+                            <div><p>{{ article.thearticletext|raw|nl2br }}</p></div>
+                            </article>
+
+                        </div>
+                        <div><p>{{ article.thecommenttext|raw|nl2br }}</p></div>
+                        {% if membre is empty %}
+                            <li><a href="./?connect" id="connect">Connexion</a></li>
+
+                        {% else %}
+                            <div class="anime__details__form">
+                                <div class="section-title">
+                                    <h5>Your Comment</h5>
+                                </div>
+                                <form action="#">
+                                    <textarea placeholder="Your Comment"></textarea>
+                                    <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                                </form>
+                            </div>
+                        {% endif %}
+
                     </div>
-
                 </div>
-               <div> <p>{{ article.thearticletext|raw|nl2br }}</p></div>
-            </article>
-
-        </div></div></div></div></div></div>
+            </div>
+        </div>
+        </div>
 
     </section>
 {% endblock %}
