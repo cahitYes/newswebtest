@@ -1,42 +1,31 @@
-<div class="row">
-
-    <div class="col-lg-9">
-        <div class="header__nav">
-            <nav class="header__menu mobile-menu">
-                <ul>
-                    <li ><a href="./">Accueil</a></li>
-                    <li><a href="./?blog">Les articles</a></li>
-                    <li><a href="#">Sections <span class="arrow_carrot-down"></span></a>
-                        <ul class="dropdown">
-                            <li class="listMenu">
-                                <a id="sectionnav">Sections</a>
-                                <ul class="subMenu">
-                                    {# Affichage du menu depuis la table thesection #}
-                                    {% for itemSection in menu %}
-                                        <li><a href="?section={{ itemSection.thesectionslug }}">{{ itemSection.thesectiontitle }}</a></li>
-                                    {% else %}
-                                        <li>PAS ENCORE DE SECTION !</li>
-                                    {% endfor %}
-
-                                </ul>
+<div class="col-lg-8">
+    <div class="header__nav">
+        <nav class="header__menu mobile-menu">
+            <ul>
+               
+                <li><a href="./">Accueil</a></li>
+                <li><a href="./?blog">Les articles</a></li>
+                <li>
+                    <a id="sectionnav">Sections</a>
+                    <ul class="dropdown">
+                        <ul class="subMenu">
+                            {% for itemSection in menu %}
+                                <li>
+                                    <a href="?section={{ itemSection.thesectionslug }}">{{ itemSection.thesectiontitle }}</a>
+                                </li>
+                            {% endfor %}
                         </ul>
-                    </li>
-                    <li><a href="./?contact">Contacts</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="col-lg-2">
-        <div class="header__right">
-            {% if membre is empty %}
-                <a href="./?connect"><span class="icon_profile"></span></a>
-            {% else %}
 
-                <li><a href="./?disconnect" id="admin">{{ membre.userLogin }} : Déconnexion</a></li>
-            {% endif %}
+                    </ul>
+                </li>
+                <li><a href="./?contact">Contacts</a></li>
+                {% if membre is empty %}
+                    <li><a href="./?connect" id="connect">Connexion</a></li>
+                {% else %}
 
-
-        </div>
+                    <li><a href="./?disconnect" id="admin">{{ membre.userLogin }} : Déconnexion</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
 </div>
-<div id="mobile-menu-wrap"></div>
