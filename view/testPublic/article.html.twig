@@ -5,15 +5,20 @@
 {% block pagetype %}section{% endblock %}
 
 {% block logo %}
-    <div id="logo">
-        <h1>News <span id="iisrt"><span id="ii">II</span>  <span id="srt">WEB</span></span></h1>
-        <div id="tagline">
-            <h2>Article</h2>
-        </div>
-    </div>
+
 {% endblock %}
 {% block main %}
-    <section>
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+                        <div class="blog__details__text">
+
+                        </div>
+                        <div class="blog__details__item__text">
+
         <div id="line">
             <div class="dline"></div>
             <h4>Article : {{ article.thearticletitle|raw }}</h4>
@@ -21,16 +26,15 @@
         </div>
         <div class="sectionDesc">
             <p>{{ article.thearticledesc }}</p>
-            {# Pour activer le var_dump de twig : https://twig.symfony.com/doc/3.x/functions/dump.html #}
-            {# dump(articles) #}
+
         </div>
         <div id="articles">
 
             <article>
                 <div id="displayArticle">
-                    <h1><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h1>
-                    <h2>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
-                        le {{ article.thearticledate|date('d/m/Y') }}</h2>
+                    <h4><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h4>
+                    <h5>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
+                        le {{ article.thearticledate|date('d/m/Y') }}</h5>
                     <img src="images/a1.jpg" alt=""/>
 
                     <div id="descArticle">
@@ -40,10 +44,10 @@
                     </div>
 
                 </div>
-                <div>{{ article.thearticletext|raw|nl2br }}</div>
+               <div> <p>{{ article.thearticletext|raw|nl2br }}</p></div>
             </article>
 
-        </div>
+        </div></div></div></div></div></div>
 
     </section>
 {% endblock %}

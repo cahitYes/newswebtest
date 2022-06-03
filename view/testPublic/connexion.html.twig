@@ -4,12 +4,7 @@
 {% block pagetype %}connect{% endblock %}
 
 {% block logo %}
-    <div id="logo">
-        <h1>News <span id="iisrt"><span id="ii">II</span>  <span id="srt">WEB</span></span></h1>
-        <div id="tagline">
-            <h2>Page de connexion</h2>
-        </div>
-    </div>
+
 {% endblock %}
 {% block main %}
 <section class="login spad">
@@ -18,13 +13,21 @@
             <div class="col-lg-6">
                 <div class="login__form">
                     <h3>Login</h3>
-                    <form action="#">
+                    <form method="POST">
                         <div class="input__item">
-                            <input type="text" placeholder="Email address">
+                            <input type="text" name="theuserlogin" id="login"
+                                   placeholder="your login"
+                                   onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'your name'"
+                                   value=""/>
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input type="text" placeholder="Password">
+                            <input type="password" name="theuserpwd" id="pass"
+                                   placeholder="your password"
+                                   onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'your password'"
+                                   value=""/>
                             <span class="icon_lock"></span>
                         </div>
                         <button type="submit" class="site-btn">Login Now</button>
@@ -39,22 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="login__social">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login__social__links">
-                        <span>or</span>
-                        <ul>
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With
-                                    Facebook</a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google"></i> Sign in With Google</a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i> Sign in With Twitter</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </section>
 {% endblock %}

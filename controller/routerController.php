@@ -81,7 +81,7 @@ elseif (isset($_GET['article'])):
         ]);
     // on a récupéré un article
     else:
-        echo $twig->render('testPublic/blog.html.twig', [
+        echo $twig->render('testPublic/article.html.twig', [
             'menu'    => $thesectionMenu,
             'article' => $theArticleDatas,
             'membre'  => $_SESSION,

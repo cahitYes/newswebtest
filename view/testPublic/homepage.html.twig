@@ -65,36 +65,15 @@
                             </div>
                         </div>
                         <div class="row">
+                            {% for article in lastArticles %}
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="./testPublicFiles/img/trending/trend-1.jpg">
+
+                                    <div class="product__item__pic set-bg" data-setbg="images/1.jpg">
 
                                     </div>
+                                    <h6><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h6>
                                     <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
-                                        <p>{{ article.thearticleresume|raw }}</p>
-                                        <p> Nombre de commentaires : {{ article.nbcomment }}</p>
-                                        <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
-                                        <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
-                                            le {{ article.thearticledate|date('d/m/Y') }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="./testPublicFiles/img/trending/trend-2.jpg">
-
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
                                         <p>{{ article.thearticleresume|raw }}</p>
                                         <p>Nombre de commentaires : {{ article.nbcomment }}</p>
                                         <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
@@ -103,27 +82,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="./testPublicFiles/img/trending/trend-3.jpg">
-
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="?article={{ article.thearticleslug }}">{{ article.thearticletitle|raw }}</a></h5>
-                                        <p>{{ article.thearticleresume|raw }}</p>
-                                        <p>Nombre de commentaires : {{ article.nbcomment }}</p>
-                                        <a href="?article={{ article.thearticleslug }}" class="rm">En savoir plus...</a>
-                                        <p>Posté par : <a href="?user={{ article.idtheuser }}">{{ article.theuserlogin }}</a>
-                                            le {{ article.thearticledate|date('d/m/Y') }}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            {% endfor %}
                         </div>
                     </div>
 
