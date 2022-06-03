@@ -2,8 +2,10 @@
 
 namespace NewsWeb\Manager;
 
+use Exception;
 use NewsWeb\Interface\ManagerInterface;
 use NewsWeb\MyPDO;
+use PDO;
 
 class thecommentManager implements ManagerInterface
 {
@@ -14,9 +16,9 @@ class thecommentManager implements ManagerInterface
         $this->connect = $db;
     }
 
-    public function thecommentSelectAllByIdArticle($id) : array|string
+    public function thecommentSelectAllByIdArticle($id): array|string
     {
-        $sql     = "SELECT c.idthecomment, c.thecommenttext, c.thecommentdate, u.theuserlogin, u.idtheuser
+        $sql = "SELECT c.idthecomment, c.thecommenttext, c.thecommentdate, u.theuserlogin, u.idtheuser
                     FROM thecomment c
                     INNER JOIN theuser u
                     ON c.theuser_idtheuser = u.idtheuser
@@ -28,10 +30,10 @@ class thecommentManager implements ManagerInterface
                     ORDER BY c.thecommentdate DESC;";
         $prepare = $this->connect->prepare($sql);
         try {
-            $prepare->bindParam(1, $id, \PDO::PARAM_INT);
+            $prepare->bindParam(1, $id, PDO::PARAM_INT);
             $prepare->execute();
-            $result = $prepare->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (\Exception $e) {
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
             $result = $e->getMessage();
         }
         return $result;
