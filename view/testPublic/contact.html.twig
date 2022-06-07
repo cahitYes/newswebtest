@@ -19,7 +19,8 @@
 
 
                 <form method="post">
-                    <div class="test">
+                    <div class="login__form">
+
                         <div><h3><label for="name">Name </label><br><input type="text" name="name" id="name"
                                                                            placeholder="your name"
                                                                            onfocus="this.placeholder = ''"
@@ -27,15 +28,16 @@
                                                                            value="{% if name is defined %}{{ name }}{% endif %}"/>
                             </h3></div>
                     </div>
-                    <div class="test"><h3><label for="email">Email</label><br><input type="email" name="email"
-                                                                                     id="email"
-                                                                                     placeholder="your@email.com"
-                                                                                     onfocus="this.placeholder = ''"
-                                                                                     onblur="this.placeholder = 'your@email.com'"
-                                                                                     value="{% if email is defined %}{{ email }}{% endif %}"/>
+                    <div class="login__form">
+                        <h3><label for="email">Email</label><br><input type="email" name="email"
+                                                                       id="email"
+                                                                       placeholder="your@email.com"
+                                                                       onfocus="this.placeholder = ''"
+                                                                       onblur="this.placeholder = 'your@email.com'"
+                                                                       value="{% if email is defined %}{{ email }}{% endif %}"/>
                         </h3></div>
-                    <div class="test"><h3><label for="message">Message</label><br><textarea name="message"
-                                                                                            id="message">{% if message is defined %}{{ message }}{% endif %}</textarea>
+                    <div class="login__form"><h3><label for="message">Message</label><br><textarea name="message"
+                                                                                                   id="message">{% if message is defined %}{{ message }}{% endif %}</textarea>
                         </h3></div>
                     <div><p><input class="site-btn" type="submit" name="contact_submitted" value="ENVOYER"/></p></div>
             </div>
